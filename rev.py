@@ -47,5 +47,18 @@ while 1: # Be careful with these! It might send you to an infinite loop
   
         if ircmsg.find("PING :") != -1: # if the server pings us then we've got to respond!
                 ping()
-            
+        
+        if (ircmsg.find("#gekinzuku") != -1):
+        	wdb = sqlite3.connect('words.db')
+        	print('opened database')
+        	words = msg.split(' ')
+        	wordlen = len(words)
+        	for x in range(0, wordlen):
+        		words[x].lower()
+        		wdb.execute("INSERT OR IGNORE into words (word,translation,valid) \ VALUES ('"+words[x]+"', 'none', 0)")
+        		
+        	wdb.commit()
+        	print "Words successfully stored"
+        	wdb.close()
+        		
         
