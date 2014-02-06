@@ -1,8 +1,10 @@
 import socket
 import random
 import urllib
+import sqlite3
 
-botnick = Rev
+botnick = "Revian"
+server = "irc.freenode.net"
 
 def ping():
 	pongo = "PONG :Pong\n"
@@ -54,8 +56,14 @@ while 1: # Be careful with these! It might send you to an infinite loop
         	words = msg.split(' ')
         	wordlen = len(words)
         	for x in range(0, wordlen):
-        		words[x].lower()
-        		wdb.execute("INSERT OR IGNORE into words (word,translation,valid) \ VALUES ('"+words[x]+"', 'none', 0)")
+        		theword = words[x].lower()
+			newWord = ''
+			validLetters = "abcdefghijklmnopqrstuvwxyz"
+			for char in theword:
+				if char in validLetters:
+					newWord += char
+			if (len(newWord) > 0):
+	        		wdb.execute("INSERT OR IGNORE into words2 (word,translation,valid) VALUES ('"+newWord+"', 'none', 0)")
         		
         	wdb.commit()
         	print "Words successfully stored"
