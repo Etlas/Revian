@@ -13,6 +13,7 @@ def NextWord():
   rows = cur.fetchone()
   global English
   English = str(rows).strip("(),'")
+  print "-------------------------------\n\n\n"
   print str(English)+"\n"
   Decision = raw_input('1: Translate This Word | 2: This is not a word | 3: Quit\nChoice: ')
   print Decision
@@ -31,9 +32,9 @@ def NextWord():
     if Correct == "y":
       cur.execute("INSERT INTO revian VALUES (?,?,?)", (str(English),str(NewRevian),str(NewPos)))
       wdb.commit()
-      NextWord()
       cur.execute("UPDATE words2 SET valid = 1 WHERE word = ?", (str(English),))
       wdb.commit()
+      NextWord()
     if Correct == "n":
       NextWord()
 
