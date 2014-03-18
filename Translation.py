@@ -1,7 +1,7 @@
 import sqlite3
 
-global English = ""
-global Revian = ""
+global English
+global Revian
 
 wdb = sqlite3.connect('words.db')
 print('opened database')
