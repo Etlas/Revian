@@ -24,10 +24,19 @@ def NextWord():
     Suggestion = English[0:1]+ReverseEnglish[1:(LenRE - 1)]+English[(LenRE - 1):]
     print 'English: '+ str(English)
     print 'Suggested Revian: '+ str(Suggestion)
-    NewWord = raw_input('In Revian this is: ')
+    NewRevian = raw_input('\nIn Revian this is: ')
+    NewPos = raw_input('\nWhat part of speech is this: ')
+    print "English word: "+str(English)+" in Revian is: "+str(NewRevian)+" and is a: "+NewPos+"\n"
+    Correct = raw_input('\nIs that correct?\n')
+    if Correct == "1":
+      cur.execute("INSERT INTO revian(english TEXT, revian TEXT, pos TEXT) VALUES (?,?,?)", (str(English),str(NewRevian),str(NewPos)))
+      wdb.commit()
+      NextWord()
+    if Correct == "2":
+      NextWord()
 
   if Decision == "2":
-    cur.execute("UPDATE words2 SET valid = 1 WHERE word = ?", (str(English),))
+    cur.execute("UPDATE words2 SET valid = 1 WHERE word = ?", (str(English),)
     wdb.commit()
     NextWord()
     
