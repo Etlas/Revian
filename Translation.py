@@ -32,6 +32,8 @@ def NextWord():
       cur.execute("INSERT INTO revian VALUES (?,?,?)", (str(English),str(NewRevian),str(NewPos)))
       wdb.commit()
       NextWord()
+      cur.execute("UPDATE words2 SET valid = 1 WHERE word = ?", (str(English),))
+      wdb.commit()
     if Correct == "n":
       NextWord()
 
