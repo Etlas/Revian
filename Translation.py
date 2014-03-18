@@ -36,7 +36,7 @@ def NextWord():
       NextWord()
 
   if Decision == "2":
-    cur.execute("UPDATE words2 SET valid = 1 WHERE word = ?", (str(English),)
+    cur.execute("UPDATE words2 SET valid = 1 WHERE word = ?", (str(English),))
     wdb.commit()
     NextWord()
     
