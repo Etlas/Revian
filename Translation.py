@@ -12,12 +12,12 @@ cur = wdb.cursor()
 cur.execute("SELECT word FROM words2 WHERE valid = 0 LIMIT 1")
 rows = cur.fetchall()
 English = rows
-print English+"\n"
+print str(English)+"\n"
 Decision = raw_input('1: Translate This Word | 2: This is not a word | 3: Quit\n ')
 if (Decision == 1):
   ReverseEnglish = English[::-1]
   LenRE = len(ReverseEnglish)
   Suggestion = English[0:1]+ReverseEnglish[1:LenRE - 1]+English[LenRE -1:]
-  print 'English: '+English
-  print 'Suggested Revian: '+Suggestion
+  print 'English: '+ str(English)
+  print 'Suggested Revian: '+ str(Suggestion)
   NewWord = raw_input('In Revian this is: ')
