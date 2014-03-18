@@ -12,7 +12,8 @@ cur = wdb.cursor()
 cur.execute("SELECT word FROM words2 WHERE valid = 0 LIMIT 1")
 rows = cur.fetchall()
 English = rows
-Decision = raw_input('1: Translate This Word | 2: This is not a word | 3: Quit')
+print English+"\n"
+Decision = raw_input('1: Translate This Word | 2: This is not a word | 3: Quit\n ')
 if (Decision == 1):
   ReverseEnglish = English[::-1]
   LenRE = len(ReverseEnglish)
