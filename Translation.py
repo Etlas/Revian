@@ -9,7 +9,7 @@ print('opened database')
 def NextWord():
   cur = wdb.cursor()
   cur.execute("SELECT word FROM words2 WHERE valid = 0 LIMIT 1")
-  rows = cur.fetchall()
+  rows = cur.fetchone()
   global English
   English = rows
   print str(English)+"\n"
