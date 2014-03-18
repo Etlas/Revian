@@ -26,7 +26,8 @@ def NextWord():
     NewWord = raw_input('In Revian this is: ')
 
   if Decision == "2":
-    cur.execute("UPDATE words2 SET valid = 1 WHERE word = ?"), (English))
+    cur.execute("UPDATE words2 SET valid = 1 WHERE word = ?", (English))
+    con.commit()
     NextWord()
     
   if Decision == "3":
