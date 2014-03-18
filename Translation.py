@@ -14,6 +14,7 @@ rows = cur.fetchall()
 English = rows
 print str(English)+"\n"
 Decision = raw_input('1: Translate This Word | 2: This is not a word | 3: Quit\n ')
+print Decision
 if (Decision == 1):
   ReverseEnglish = English[::-1]
   LenRE = len(ReverseEnglish)
