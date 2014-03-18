@@ -15,7 +15,7 @@ English = rows
 print str(English)+"\n"
 Decision = raw_input('1: Translate This Word | 2: This is not a word | 3: Quit\nChoice: ')
 print Decision
-if (Decision == 1):
+if Decision == 1:
   print "Correct"
   ReverseEnglish = English[::-1]
   LenRE = len(ReverseEnglish)
