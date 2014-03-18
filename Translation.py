@@ -5,7 +5,6 @@ global English
 global Revian
 wdb = sqlite3.connect('words.db')
 print('opened database')
-NextWord()
   
 def NextWord():
   cur = wdb.cursor()
@@ -34,3 +33,5 @@ def NextWord():
     sys.exit("User Quit")
     
   return
+
+NextWord()
