@@ -4,6 +4,7 @@ import sys
 global English
 global Revian
 wdb = sqlite3.connect('words.db')
+wdb.text_factory = str
 print('opened database')
   
 def NextWord():
@@ -11,7 +12,7 @@ def NextWord():
   cur.execute("SELECT word FROM words2 WHERE valid = 0 LIMIT 1")
   rows = cur.fetchone()
   global English
-  English = str(rows)
+  English = rows
   print str(English)+"\n"
   Decision = raw_input('1: Translate This Word | 2: This is not a word | 3: Quit\nChoice: ')
   print Decision
