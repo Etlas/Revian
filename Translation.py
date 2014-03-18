@@ -11,7 +11,7 @@ def NextWord():
   cur.execute("SELECT word FROM words2 WHERE valid = 0 LIMIT 1")
   rows = cur.fetchone()
   global English
-  English = rows
+  English = str(rows)
   print str(English)+"\n"
   Decision = raw_input('1: Translate This Word | 2: This is not a word | 3: Quit\nChoice: ')
   print Decision
