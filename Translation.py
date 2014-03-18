@@ -32,3 +32,5 @@ def NextWord():
     
   if Decision == "3":
     sys.exit("User Quit")
+    
+  return
