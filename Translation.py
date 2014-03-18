@@ -17,7 +17,7 @@ def NextWord():
   Decision = raw_input('1: Translate This Word | 2: This is not a word | 3: Quit\nChoice: ')
   print Decision
   if Decision == "1":
-    print "Correct\n"
+    print "-------------------------------\n\n\n"
     ReverseEnglish = English[::-1]
     print ReverseEnglish+"\n"
     LenRE = len(ReverseEnglish)
@@ -25,14 +25,14 @@ def NextWord():
     print 'English: '+ str(English)
     print 'Suggested Revian: '+ str(Suggestion)
     NewRevian = raw_input('\nIn Revian this is: ')
-    NewPos = raw_input('\nWhat part of speech is this: ')
-    print "English word: "+str(English)+" in Revian is: "+str(NewRevian)+" and is a: "+NewPos+"\n"
-    Correct = raw_input('\nIs that correct?\n')
-    if Correct == "1":
-      cur.execute("INSERT INTO revian(english TEXT, revian TEXT, pos TEXT) VALUES (?,?,?)", (str(English),str(NewRevian),str(NewPos)))
+    NewPos = raw_input('What part of speech is this: ')
+    print "English word: "+str(English)+" & in Revian is: "+str(NewRevian)+" & is a: "+NewPos+"\n"
+    Correct = raw_input('Is that correct? (y/n)\n')
+    if Correct == "y":
+      cur.execute("INSERT INTO revian VALUES (?,?,?)", (str(English),str(NewRevian),str(NewPos)))
       wdb.commit()
       NextWord()
-    if Correct == "2":
+    if Correct == "n":
       NextWord()
 
   if Decision == "2":
