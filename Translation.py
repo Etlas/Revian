@@ -17,10 +17,11 @@ def NextWord():
   Decision = raw_input('1: Translate This Word | 2: This is not a word | 3: Quit\nChoice: ')
   print Decision
   if Decision == "1":
-    print "Correct"
+    print "Correct\n"
     ReverseEnglish = English[::-1]
+    print ReverseEnglish+"\n"
     LenRE = len(ReverseEnglish)
-    Suggestion = English[0:1]+ReverseEnglish[1:LenRE - 1]+English[LenRE -1:]
+    Suggestion = English[0:1]+ReverseEnglish[1:(LenRE - 1)]+English[(LenRE - 1):]
     print 'English: '+ str(English)
     print 'Suggested Revian: '+ str(Suggestion)
     NewWord = raw_input('In Revian this is: ')
