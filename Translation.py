@@ -4,12 +4,10 @@ import sys
 global English
 global Revian
 
-wdb = sqlite3.connect('words.db')
-print('opened database')
-
-cur = wdb.cursor()
-
 def NextWord():
+  wdb = sqlite3.connect('words.db')
+  print('opened database')
+  cur = wdb.cursor()
   cur.execute("SELECT word FROM words2 WHERE valid = 0 LIMIT 1")
   rows = cur.fetchall()
   global English
