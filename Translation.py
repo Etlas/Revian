@@ -51,11 +51,11 @@ def NextWord():
       print 'Revian appears to already exist! Please rewrite.'
       NextWord()
     NewPos = raw_input('What part of speech is this: ')
-    if NewPos == "verb":
+    if NewPos.lower() == "verb":
       print 'Verb is: '+str(NewRevian)
       VerbNoun = raw_input('Please enter Noun form:\n')
       VerbNounEng = raw_input('Please enter Noun in English:\n')
-      print 'English is: '+str(VerbNounEng+' & in Revian is: '+str(VerbNoun)+' & is a Noun\n'
+      print 'English is: '+str(VerbNounEng)+' & in Revian is: '+str(VerbNoun)+' & is a: Noun\n'
       YesRight = raw_input('Is that correct? (y/n)\n')
       if YesRight == "y":
         cur.execute("INSERT INTO revian VALUES (?,?,?)", (str(VerbNounEng),str(VerbNoun),("Noun")))
