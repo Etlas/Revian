@@ -26,7 +26,42 @@ def NextWord():
     print 'English: '+ str(English)
     print 'Suggested Revian: '+ str(Suggestion)
     NewRevian = raw_input('\nIn Revian this is: ')
+    chars = set('hjkpquwxz')
+    if any((c in chars) for c in NewRevian.lower()):
+      print 'Revian contains invalid characters\n'
+      try:
+        NewRevian = NewRevian.lower().replace('h','a')
+        NewRevian = NewRevian.lower().replace('j','g')
+        NewRevian = NewRevian.lower().replace('k','c')
+        NewRevian = NewRevian.lower().replace('w','o')
+        NewRevian = NewRevian.lower().replace('p','b')
+        NewRevian = NewRevian.lower().replace('q','c')
+        NewRevian = NewRevian.lower().replace('u','o')
+        NewRevian = NewRevian.lower().replace('x','c')
+        NewRevian = NewRevian.lower().replace('z','s')
+      except:
+        NewRevian = NewRevian
+      print 'Here it is in proper Revian characters: '+str(NewRevian)
+      Accept = raw_input('Accept new changes? (y/n)\n')
+      if Accept == "n":
+        NextWord()
+    cur.execute("SELECT COUNT() FROM revian WHERE revian = ?", (str(NewRevian),))
+    existing = cur.fetchone()
+    if existing != '0':
+      print 'Revian appears to already exist! Please rewrite.'
+      NextWord()
     NewPos = raw_input('What part of speech is this: ')
+    if NewPos == "verb":
+      print 'Verb is: '+str(NewRevian)
+      VerbNoun = raw_input('Please enter Noun form:\n')
+      VerbNounEng = raw_input('Please enter Noun in English:\n')
+      print 'English is: '+str(VerbNounEng+' & in Revian is: '+str(VerbNoun)+' & is a Noun\n'
+      Yes = raw_input('Is that correct? (y/n)\n')
+      if Yes == "y":
+        cur.execute("INSERT INTO revian VALUES (?,?,?)", (str(VerbNounEng),str(VerbNoun),("Noun")))
+        wdb.commit()
+      if Yes == "n":
+        NextWord()
     print "English word: "+str(English)+" & in Revian is: "+str(NewRevian)+" & is a: "+NewPos+"\n"
     Correct = raw_input('Is that correct? (y/n)\n')
     if Correct == "y":
