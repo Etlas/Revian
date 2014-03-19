@@ -47,6 +47,8 @@ def NextWord():
         NextWord()
     cur.execute("SELECT COUNT() FROM revian WHERE revian = ?", (str(NewRevian),))
     existing = cur.fetchone()
+    print str(existing)
+    wait = raw_input()
     if existing != '0':
       print 'Revian appears to already exist! Please rewrite.'
       NextWord()
