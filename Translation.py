@@ -48,10 +48,9 @@ def NextWord():
     cur.execute("SELECT COUNT() FROM revian WHERE revian = ?", (str(NewRevian),))
     existing = cur.fetchone()
     existing = str(existing).strip("(),'")
-    print str(existing)
     wait = raw_input()
     if existing != '0':
-      print 'Revian appears to already exist! Please rewrite.'
+      print '---------------------\nRevian appears to already exist! Please rewrite.'
       NextWord()
     NewPos = raw_input('What part of speech is this: ')
     if NewPos.lower() == "verb":
