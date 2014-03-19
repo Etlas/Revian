@@ -56,11 +56,11 @@ def NextWord():
       VerbNoun = raw_input('Please enter Noun form:\n')
       VerbNounEng = raw_input('Please enter Noun in English:\n')
       print 'English is: '+str(VerbNounEng+' & in Revian is: '+str(VerbNoun)+' & is a Noun\n'
-      Yes = raw_input('Is that correct? (y/n)\n')
-      if Yes == "y":
+      YesRight = raw_input('Is that correct? (y/n)\n')
+      if YesRight == "y":
         cur.execute("INSERT INTO revian VALUES (?,?,?)", (str(VerbNounEng),str(VerbNoun),("Noun")))
         wdb.commit()
-      if Yes == "n":
+      if YesRight == "n":
         NextWord()
     print "English word: "+str(English)+" & in Revian is: "+str(NewRevian)+" & is a: "+NewPos+"\n"
     Correct = raw_input('Is that correct? (y/n)\n')
