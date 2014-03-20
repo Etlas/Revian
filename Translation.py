@@ -54,6 +54,7 @@ def NextWord():
       NextWord()
     NewPos = raw_input('What part of speech is this: ')
     if NewPos.lower() == "verb":
+      English = "to "+str(English)
       print 'Verb is: '+str(NewRevian)
       VerbNoun = raw_input('Please enter Noun form:\n')
       VerbNounEng = raw_input('Please enter Noun in English:\n')
