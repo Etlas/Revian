@@ -87,6 +87,7 @@ def NextWord():
     Pos = raw_input('Part of Speech:\n')
     cur.execute("INSERT INTO revian VALUES (?,?,?)", (str(Eng),str(Rev),str(Pos)))
     wdb.commit()
+    NextWord()
     
   if Decision == "4":
     sys.exit("User Quit")
