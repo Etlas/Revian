@@ -15,7 +15,7 @@ def NextWord():
   English = str(rows).strip("(),'")
   print "-------------------------------\n\n\n"
   print str(English)+"\n"
-  Decision = raw_input('1: Translate This Word | 2: This is not a word | 3: Quit\nChoice: ')
+  Decision = raw_input('1: Translate This Word | 2: This is not a word | 3: Insert word | 4: Quit\nChoice: ')
   print Decision
   if Decision == "1":
     print "-------------------------------\n\n\n"
@@ -82,6 +82,13 @@ def NextWord():
     NextWord()
     
   if Decision == "3":
+    Eng = raw_input('English word:\n')
+    Rev = raw_input('Revian word:\n')
+    Pos = raw_input('Part of Speech:\n')
+    cur.execute("INSERT INTO revian VALUES (?,?,?)", (str(Eng),str(Rev),str(Pos)))
+    wdb.commit()
+    
+  if Decision == "4":
     sys.exit("User Quit")
     
   return
