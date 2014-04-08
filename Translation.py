@@ -9,7 +9,7 @@ wdb.text_factory = str
 print('opened database')
   
 def NextWord():
-  os.system('cls')
+  os.system('CLS')
   cur = wdb.cursor()
   cur.execute("SELECT word FROM words2 WHERE valid = 0 LIMIT 1")
   rows = cur.fetchone()
