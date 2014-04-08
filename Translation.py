@@ -14,7 +14,7 @@ def NextWord():
   global English
   English = str(rows).strip("(),'")
   DupEnglish = "to " + English
-  cur.execute("SELECT COUNT() FROM revian WHERE english = ?", (str(DupEnglish,))
+  cur.execute("SELECT COUNT() FROM revian WHERE english = ?", (str(DupEnglish),))
   thecount = cur.fetch()
   if (thecount > 0):
     Dupli = raw_input('Word: '+English+' appears to already be in database, correct? ')
