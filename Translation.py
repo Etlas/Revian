@@ -14,13 +14,9 @@ def NextWord():
   global English
   English = str(rows).strip("(),'")
   DupEnglish = "to " + English
-  cur.execute("SELECT COUNT() FROM revian WHERE english = ?", (str(DupEnglish),))
+  cur.execute("SELECT english FROM revian WHERE english = ?", (str(DupEnglish),))
   thecount = cur.fetchone()
-  if (thecount > 0):
-    Dupli = raw_input('Word: '+English+' appears to already be in database, correct? ')
-    if Dupli == "y":
-      cur.execute("UPDATE words2 SET valid = 1 WHERE word = ?", (str(English),))
-      NextWord()
+  print thecount
   print "-------------------------------\n\n\n"
   print str(English)+"\n"
   Decision = raw_input('1: Translate This Word | 2: This is not a word | 3: Insert word | 4: Quit\nChoice: ')
