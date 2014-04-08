@@ -18,7 +18,7 @@ def NextWord():
   thecount = cur.fetchone()
   print str(thecount)+"\n"
   cur.execute("SELECT english FROM revian WHERE english = ?", (str(English),))
-  normality = cut.fetchone()
+  normality = cur.fetchone()
   print normailty
   print "-------------------------------\n\n\n"
   print str(English)+"\n"
