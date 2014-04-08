@@ -16,7 +16,7 @@ def NextWord():
   DupEnglish = "to " + English
   cur.execute("SELECT english FROM revian WHERE english = ?", (str(DupEnglish),))
   thecount = cur.fetchone()
-  print thecount+"\n"
+  print str(thecount)+"\n"
   cur.execute("SELECT english FROM revian WHERE english = ?", (str(English),))
   normality = cut.fetchone()
   print normailty
