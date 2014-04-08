@@ -16,7 +16,10 @@ def NextWord():
   DupEnglish = "to " + English
   cur.execute("SELECT english FROM revian WHERE english = ?", (str(DupEnglish),))
   thecount = cur.fetchone()
-  print thecount
+  print thecount+"\n"
+  cur.execute("SELECT english FROM revian WHERE english = ?", (str(English),))
+  normality = cut.fetchone()
+  print normailty
   print "-------------------------------\n\n\n"
   print str(English)+"\n"
   Decision = raw_input('1: Translate This Word | 2: This is not a word | 3: Insert word | 4: Quit\nChoice: ')
